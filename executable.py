@@ -3,6 +3,7 @@ import json
 from src.ocr import run_ocr
 from src.extract_hp_cost import extract_hp, extract_asset_cost
 from src.extract_dealer import extract_dealer_name
+from src.extract_model import extract_model_name
 
 def main(image_path):
     ocr_data = run_ocr(image_path)
@@ -10,6 +11,8 @@ def main(image_path):
     dealer, dealer_conf = extract_dealer_name(ocr_data)
     hp, hp_conf = extract_hp(ocr_data)
     cost, cost_conf = extract_asset_cost(ocr_data)
+    model, model_conf = extract_model_name(ocr_data, MODEL_MASTER_LIST)
+
 
     output = {
         "fields": {
@@ -23,6 +26,8 @@ def main(image_path):
     }
 
     print(json.dumps(output, indent=2))
+    print("Model Name :", model, "| confidence:", round(model_conf, 2))
+
 
 if __name__ == "__main__":
     main(sys.argv[1])
