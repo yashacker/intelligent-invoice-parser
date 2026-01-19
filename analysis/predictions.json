@@ -1,0 +1,34 @@
+{
+  "processing_time_sec": 92.03,
+  "documents": [
+    {
+      "doc_id": "172448470_3_pg15.png",
+      "fields": {
+        "dealer_name": "PHONG : (06646)234865:",
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 234865,
+        "signature": {
+          "present": true,
+          "bbox": [
+            414,
+            1209,
+            518,
+            1243
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            967,
+            1185,
+            1179,
+            1297
+          ]
+        }
+      },
+      "confidence": 0.91
+    }
+  ],
+  "cost_estimate_usd": 0.002
+}
