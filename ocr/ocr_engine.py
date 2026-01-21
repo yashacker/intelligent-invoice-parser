@@ -28,6 +28,11 @@ def run_ocr(image_path):
     img = cv2.imread(image_path)
 
     results = reader.readtext(img)
+    print("\n--- OCR OUTPUT SAMPLE ---")
+    for l in results[:15]:
+        print(l[1])
+    print("--- END OCR SAMPLE ---\n")
+
 
     structured = []
     for r in results:
