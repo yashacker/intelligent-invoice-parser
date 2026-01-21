@@ -1,5 +1,6 @@
 import os
-import re
+from extraction.utils import normalize_ocr
+
 
 def load_models(relative_path):
     """
@@ -17,34 +18,27 @@ def load_models(relative_path):
         return [line.strip() for line in f if line.strip()]
 
 
-def normalize(text):
-    """
-    Normalize OCR text for exact (but OCR-tolerant) matching
-    """
-    text = text.upper()
-
-    # Common OCR confusions
-    text = text.replace("DL", "DI")
-    text = text.replace("D1", "DI")
-
-    text = re.sub(r'[^A-Z0-9\s]', ' ', text)
-    text = re.sub(r'\s+', ' ', text).strip()
-    return text
-
-
 def extract_model_name(ocr_lines, model_master):
     """
-    Exact match against model master.
-    Longest match wins.
+    Extract model name using normalized exact matching.
+    Longest valid match wins.
+    Conservative by design (no hallucination).
     """
-    full_text = " ".join(line["text"] for line in ocr_lines)
-    full_text_norm = normalize(full_text)
+
+    # Normalize full OCR text once
+    full_text_norm = " ".join(
+        normalize_ocr(line["text"]) for line in ocr_lines
+    )
 
     best_model = None
     best_len = 0
 
     for model in model_master:
-        model_norm = normalize(model)
+        model_norm = normalize_ocr(model)
+
+        # Skip very short model names (noise protection)
+        if len(model_norm) < 4:
+            continue
 
         if model_norm in full_text_norm:
             if len(model_norm) > best_len:
@@ -52,6 +46,7 @@ def extract_model_name(ocr_lines, model_master):
                 best_len = len(model_norm)
 
     if best_model:
-        return best_model, 1.0
+        return best_model, 0.9
 
-    return None, 0.0
+    # Soft failure (model often missing in govt docs)
+    return None, 0.2

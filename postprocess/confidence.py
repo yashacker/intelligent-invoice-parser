@@ -1,26 +1,42 @@
 def compute_confidence(scores):
+    """
+    Compute document-level confidence using field-level scores.
+    scores must contain numeric values only.
+    """
+
+    # Base weights
     weights = {
-        "dealer": 0.20,
-        "model": 0.20,
-        "hp": 0.15,
-        "cost": 0.15,
+        "dealer": 0.25,
+        "model": 0.15,
+        "hp": 0.10,
+        "cost": 0.25,
         "signature": 0.15,
-        "stamp": 0.15
+        "stamp": 0.10
     }
 
-    # 🔥 Adjust logic for government documents
+    # 🔹 Government documents: model & hp are optional
     if scores.get("govt_doc"):
         weights["model"] = 0.0
         weights["hp"] = 0.0
-
-        # redistribute weight fairly
-        weights["dealer"] += 0.15
+        weights["dealer"] += 0.10
         weights["cost"] += 0.10
-        weights["signature"] += 0.05
 
-    total = 0.0
-    for k, w in weights.items():
-        total += scores.get(k, 0.0) * w
+    # 🔹 If vision failed completely, soften penalty
+    vision_sum = scores.get("signature", 0.0) + scores.get("stamp", 0.0)
+    if vision_sum == 0.0:
+        weights["signature"] = 0.05
+        weights["stamp"] = 0.05
+        weights["dealer"] += 0.05
+        weights["cost"] += 0.05
 
-    return round(min(total, 1.0), 2)
+    # Normalize weights (important safety)
+    total_weight = sum(weights.values())
+    for k in weights:
+        weights[k] /= total_weight
 
+    # Final confidence
+    confidence = 0.0
+    for field, weight in weights.items():
+        confidence += scores.get(field, 0.0) * weight
+
+    return round(min(confidence, 1.0), 2)

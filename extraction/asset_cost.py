@@ -1,25 +1,19 @@
 import re
+from extraction.utils import normalize_ocr
 
 def extract_asset_cost(ocr_lines):
-    """
-    Strategy:
-    - Collect all large numbers
-    - Remove commas & spaces
-    - Pick the largest valid amount
-    """
+    values = []
 
-    candidates = []
+    for l in ocr_lines:
+        text = normalize_ocr(l["text"])
+        nums = re.findall(r"\b\d{5,}\b", text)
 
-    for line in ocr_lines:
-        cleaned = line["text"].replace(",", "").replace(" ", "")
-        matches = re.findall(r'\d{5,7}', cleaned)
+        for n in nums:
+            val = int(n)
+            if val > 10000:
+                values.append(val)
 
-        for m in matches:
-            val = int(m)
-            if 50000 < val < 5000000:
-                candidates.append(val)
-
-    if candidates:
-        return max(candidates), 1.0
+    if values:
+        return max(values), 1.0
 
     return None, 0.0

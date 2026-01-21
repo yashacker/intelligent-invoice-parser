@@ -1,0 +1,9 @@
+path: yolo_data
+
+train: images/train
+val: images/train
+
+nc: 2
+names:
+  - signature
+  - stamp

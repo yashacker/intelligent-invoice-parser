@@ -23,13 +23,19 @@ def preprocess(image_path):
     return gray
 
 
+# ocr/ocr_engine.py
 def run_ocr(image_path):
-    img = preprocess(image_path)
+    img = cv2.imread(image_path)
+
     results = reader.readtext(img)
 
-    return [{
-        "text": text,
-        "conf": conf,
-        "bbox": bbox
-    } for bbox, text, conf in results]
+    structured = []
+    for r in results:
+        structured.append({
+            "bbox": r[0],
+            "text": r[1],
+            "conf": r[2]
+        })
+
+    return structured
 

@@ -1,21 +1,14 @@
 import re
+from extraction.utils import normalize_ocr
 
 def extract_horse_power(ocr_lines):
-    for line in ocr_lines:
-        text = line["text"]
+    for l in ocr_lines:
+        text = normalize_ocr(l["text"])
+        match = re.search(r"\b(\d{2,3})\s*HP\b", text)
 
-        patterns = [
-            r'(\d{2,3})\s*(HP|H\.P)',
-            r'POWER\s*(\d{2,3})',
-            r'ENGINE\s*POWER\s*(\d{2,3})',
-            r'(\d{2,3})\s*HORSE'
-        ]
+        if match:
+            hp = int(match.group(1))
+            if 10 <= hp <= 200:
+                return hp, 0.9
 
-        for p in patterns:
-            match = re.search(p, text, re.IGNORECASE)
-            if match:
-                hp = int(match.group(1))
-                if 15 <= hp <= 120:
-                    return hp, 1.0
-
-    return None, 0.0
+    return None, 0.2

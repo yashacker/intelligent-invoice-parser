@@ -1,10 +1,28 @@
 {
-  "processing_time_sec": 92.03,
+  "processing_time_sec": 2155.8,
   "documents": [
+    {
+      "doc_id": "172427893_3_pg11.png",
+      "fields": {
+        "dealer_name": "THE ODISHA AGRO INDUSTRIES CORPORATION LTD:",
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 801815,
+        "signature": {
+          "present": false,
+          "bbox": null
+        },
+        "stamp": {
+          "present": false,
+          "bbox": null
+        }
+      },
+      "confidence": 0.84
+    },
     {
       "doc_id": "172448470_3_pg15.png",
       "fields": {
-        "dealer_name": "PHONG : (06646)234865:",
+        "dealer_name": "AGRO: INDUSTRIES CORPORATION",
         "model_name": null,
         "horse_power": null,
         "asset_cost": 234865,
@@ -27,8 +45,357 @@
           ]
         }
       },
-      "confidence": 0.91
+      "confidence": 0.96
+    },
+    {
+      "doc_id": "172561841_pg1.png",
+      "fields": {
+        "dealer_name": "THE ODISHAAGRO INDUSTRIES CORPORATION LTD.",
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 3330184,
+        "signature": {
+          "present": false,
+          "bbox": null
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            832,
+            1262,
+            1075,
+            1490
+          ]
+        }
+      },
+      "confidence": 0.81
+    },
+    {
+      "doc_id": "172566189_1_pg10.png",
+      "fields": {
+        "dealer_name": "ABC TRACTORS",
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 628907,
+        "signature": {
+          "present": true,
+          "bbox": [
+            110,
+            897,
+            623,
+            1280
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            981,
+            1326,
+            1109,
+            1457
+          ]
+        }
+      },
+      "confidence": 0.7
+    },
+    {
+      "doc_id": "172571502_1_pg21.png",
+      "fields": {
+        "dealer_name": null,
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 4068950,
+        "signature": {
+          "present": true,
+          "bbox": [
+            521,
+            1296,
+            597,
+            1314
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            614,
+            882,
+            1171,
+            1434
+          ]
+        }
+      },
+      "confidence": 0.5
+    },
+    {
+      "doc_id": "172576446_2_pg26.png",
+      "fields": {
+        "dealer_name": "ABC TRACTORS",
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 1406202,
+        "signature": {
+          "present": true,
+          "bbox": [
+            383,
+            1593,
+            603,
+            1645
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            603,
+            1466,
+            1137,
+            1587
+          ]
+        }
+      },
+      "confidence": 0.68
+    },
+    {
+      "doc_id": "172579986_2_pg31.png",
+      "fields": {
+        "dealer_name": "THE ORISSA AGRO INDUSTRIES CORPORATION LTD.",
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 2172120,
+        "signature": {
+          "present": true,
+          "bbox": [
+            153,
+            1315,
+            610,
+            1348
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            794,
+            1380,
+            1062,
+            1477
+          ]
+        }
+      },
+      "confidence": 0.96
+    },
+    {
+      "doc_id": "172585685_3_pg1.png",
+      "fields": {
+        "dealer_name": "MAHINDRA TRACTORS",
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 497229,
+        "signature": {
+          "present": true,
+          "bbox": [
+            46,
+            889,
+            588,
+            1415
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            775,
+            1295,
+            849,
+            1331
+          ]
+        }
+      },
+      "confidence": 0.75
+    },
+    {
+      "doc_id": "172589759_3_pg6.png",
+      "fields": {
+        "dealer_name": null,
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 681611,
+        "signature": {
+          "present": true,
+          "bbox": [
+            98,
+            1220,
+            163,
+            1258
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            593,
+            861,
+            1163,
+            1377
+          ]
+        }
+      },
+      "confidence": 0.5
+    },
+    {
+      "doc_id": "172607979_4_pg1.png",
+      "fields": {
+        "dealer_name": null,
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 1002239,
+        "signature": {
+          "present": false,
+          "bbox": null
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            970,
+            1037,
+            1134,
+            1201
+          ]
+        }
+      },
+      "confidence": 0.35
+    },
+    {
+      "doc_id": "90019767539_1_v1_pg1.png",
+      "fields": {
+        "dealer_name": null,
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 414172,
+        "signature": {
+          "present": true,
+          "bbox": [
+            98,
+            1439,
+            612,
+            1635
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            674,
+            1439,
+            1349,
+            2399
+          ]
+        }
+      },
+      "confidence": 0.5
+    },
+    {
+      "doc_id": "90019780900_1_v1_pg1.png",
+      "fields": {
+        "dealer_name": "MAHINDRA TRACTORS",
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 1030000,
+        "signature": {
+          "present": true,
+          "bbox": [
+            93,
+            1525,
+            173,
+            1545
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            595,
+            1010,
+            1122,
+            1543
+          ]
+        }
+      },
+      "confidence": 0.69
+    },
+    {
+      "doc_id": "90019804134_4_v1_pg1.png",
+      "fields": {
+        "dealer_name": null,
+        "model_name": null,
+        "horse_power": 35,
+        "asset_cost": 3248435,
+        "signature": {
+          "present": true,
+          "bbox": [
+            366,
+            1481,
+            550,
+            1507
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            595,
+            1010,
+            1141,
+            1580
+          ]
+        }
+      },
+      "confidence": 0.6
+    },
+    {
+      "doc_id": "90019805709_1_v1_pg1.png",
+      "fields": {
+        "dealer_name": "ABC TRACTORS",
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 4417373,
+        "signature": {
+          "present": true,
+          "bbox": [
+            82,
+            1411,
+            595,
+            1420
+          ]
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            880,
+            1247,
+            1055,
+            1419
+          ]
+        }
+      },
+      "confidence": 0.7
+    },
+    {
+      "doc_id": "90019864562_OTHERS_v1_pg1.png",
+      "fields": {
+        "dealer_name": "ABC TRACTORS",
+        "model_name": null,
+        "horse_power": null,
+        "asset_cost": 326502,
+        "signature": {
+          "present": false,
+          "bbox": null
+        },
+        "stamp": {
+          "present": true,
+          "bbox": [
+            595,
+            1010,
+            1122,
+            1634
+          ]
+        }
+      },
+      "confidence": 0.55
     }
   ],
-  "cost_estimate_usd": 0.002
+  "cost_estimate_usd": 0.03
 }

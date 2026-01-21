@@ -4,3 +4,4 @@ numpy
 rapidfuzz
 pdf2image
 pillow
+ultralytics

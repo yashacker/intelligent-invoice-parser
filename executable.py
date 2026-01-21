@@ -7,6 +7,9 @@ from extraction.asset_cost import extract_asset_cost
 from postprocess.confidence import compute_confidence
 from vision.signature import detect_signature
 from vision.stamp import detect_stamp
+from vision.yolo_detector import detect_stamp_signature
+
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_DIR = os.path.join(BASE_DIR, "data", "images")
@@ -30,8 +33,19 @@ def process_image(image_path, dealers, models):
         hp, hp_conf = extract_horse_power(ocr_lines)
         cost, cost_conf = extract_asset_cost(ocr_lines)
 
-        signature = detect_signature(image_path)
-        stamp = detect_stamp(image_path)
+        # YOLO detection
+        yolo_out = detect_stamp_signature(image_path)
+
+        # fallback to heuristic if YOLO fails
+        if not yolo_out["signature"]["present"]:
+            yolo_out["signature"] = detect_signature(image_path)
+
+        if not yolo_out["stamp"]["present"]:
+            yolo_out["stamp"] = detect_stamp(image_path)
+
+        signature = yolo_out["signature"]
+        stamp = yolo_out["stamp"]
+
 
         scores = {
             "dealer": dealer_conf,
